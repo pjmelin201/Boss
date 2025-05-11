@@ -1,0 +1,40 @@
+---
+title: Adding new components
+description: Guidance to help build Primer Recipes. The primary audience for this guidance is GitHub staff.
+---
+
+## New Components start as Primer Recipes
+
+**Open Source contributors**: Please [open a discussion in Primer React](https://github.com/primer/react/discussions/new?category=ideas) if you'd like to provide feedback on existing components or suggest component additions for the library.
+
+**GitHub Staff Only**: See [HubPost Guidance on creating Primer Recipes](https://thehub.github.com/epd/design-system/recipes/)
+
+## Upstreaming to Primer for GitHub Staff
+
+Once you've created a Primer Recipe and it is in the adoption phase, you can nominate it for upstreaming to Primer. Primer has a strict process for adding new components to ensure they meet certain quality criteria and are accessible.
+
+**Initiated by Primer:** Primer maintainers will regularly review recipes and identify candidates to upstream into the Primer libraries.
+
+**Initiated by a feature team:** Feature teams can nominate their Primer Recipes for upstreaming by adding a comment on their existing Primer Recipe tracking issue. Primer maintainers will respond with a review and guidance on the process.
+
+### How do Primer maintainers arrive at a decision to upstream?
+
+- Is the pattern frequently used by multiple feature teams?
+- Is this a pattern we want to encourage because it does a good job solving a particular design, engineering, or accessibility problem?
+- Will there be any negative consequences from adding this new component? For example, a negative impact on performance
+- Does it fit in with a “theme” of any existing Primer components? For example, a new data input component would fit in nicely with our existing form components and other patterns for data input
+- Is the time we'd have to invest in owning and maintaining the component worth it?
+
+#### Who are the decision makers and stakeholders involved?
+
+The Primer maintainers (designers and engineers) will decide if a component should be upstreamed using input from feature teams and the criteria described above.
+
+#### How do Primer maintainers vet components once they're upstreamed?
+
+Once a component is upstreamed, it goes through the [component lifecycle maturity](/guides/component-lifecycle) process.
+
+### Avoiding duplication
+
+New components and Primer Recipes should never have the same name as an existing Primer component - especially if it's distinctly different from the existing component. The only exception is if you're introducing the React implementation of a component that has already been created in [Primer ViewComponents](https://github.com/primer/view_components/).
+
+If you're creating a modified version of an existing component, try to modify it in Primer first. If your changes are rejected by Primer, you can iterate on a "fork" of the component with a new name until it can be upstreamed. See [the flowchart](https://primer.style/design/guides/contribute/handling-new-patterns#process-summarized-as-flowchart) in the "Handling new patterns" guidelines.
