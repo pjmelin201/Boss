@@ -1,0 +1,69 @@
+- title: Foundations
+  url: /foundations
+  children:
+    - title: Color
+      url: /foundations/color
+    - title: Typography
+      url: /foundations/typography
+    - title: Content
+      url: /foundations/content
+- title: Accessibility
+  url: /accessibility
+  children:
+    - title: Accessibility at GitHub
+      url: /accessibility/accessibility-at-github
+    - title: Guidelines
+      url: /accessibility/guidelines
+    - title: Tools
+      url: /accessibility/tools
+    - title: Alternative text for images
+      url: /accessibility/alternative-text-for-images
+    - title: Assistive technology announcements
+      url: /accessibility/announcements
+    - title: Describing a button’s purpose
+      url: /accessibility/button-purpose
+    - title: Focus management
+      url: /accessibility/focus-management
+    - title: Headings
+      url: /accessibility/headings 
+    - title: Links
+      url: /accessibility/links
+    - title: Semantic HTML
+      url: /accessibility/semantic-html
+    - title: Text resize and respacing
+      url: /accessibility/text-resize-and-respacing
+    - title: Tooltip alternatives
+      url: /accessibility/tooltip-alternatives
+- title: UI patterns
+  url: /ui-patterns
+  children:
+    - title: Button usage
+      url: /ui-patterns/button-usage
+    - title: Empty states
+      url: /ui-patterns/empty-states
+    - title: Feature onboarding
+      url: /ui-patterns/feature-onboarding
+    - title: Messaging
+      url: /ui-patterns/messaging
+    - title: Overlays
+      url: /ui-patterns/overlays
+    - title: Progressive disclosure
+      url: /ui-patterns/progressive-disclosure    
+    - title: Saving
+      url: /ui-patterns/saving
+- title: Components
+  url: /components
+  children:
+    - title: Action list
+      url: /components/action-list
+    - title: Autocomplete
+      url: /components/autocomplete
+    - title: Toggle switch
+      url: /components/toggle-switch
+    - title: Tokens
+      url: /components/tokens
+- title: Design tools
+  url: /tools
+  children:
+    - title: Figma
+      url: /tools/figma
