@@ -1,0 +1,123 @@
+---
+title: Checkout experiences
+description: These guidelines demonstrate best practices for using language sharable components for billing, payment information and designing custom versions of our checkout pages. 
+---
+
+If you're looking for mockups to get started, please refer to this [Figma library](https://www.figma.com/file/UtZycS2oSOn2kPmoTd6gkE/Checkout-experiences?type=design&node-id=422-94602&mode=design) for checkout experiences.
+
+## Page types
+
+### Full pages
+Use full pages when you need to collect or confirm substantial user's information such as seats, billing, plan types, payment, etc. 
+Full page experiences are great for confirming plan upgrades, as well as to review new sponsorships and marketplace app purchases.
+
+Use cases:
+- Upgrading to into a new plan.
+- Buying licenses to a new product (example GitHub Advanced Security).
+- Confirming and editing marketplace purchases.
+
+![full page experience](https://user-images.githubusercontent.com/3300215/264173562-74a06953-df27-471c-a220-aed19b363eac.png)
+
+
+### Light-weight checkout
+Use dialog for checkout when you need to select items upon purchase without redirecting users to a new page. 
+
+Dialog experience allows:
+- Selecting an item to purchase and pay.
+- Confirm amount to purchase and preview the price before making a final purchase.
+- Manage the seats/licenses to purchase again for large amounts (list allow sorting).
+- Error handling.
+
+Use cases:
+- Buying Copilot seats for organizations and enterprise.
+- Users requesting additional seats.
+
+![light-weight experience](https://user-images.githubusercontent.com/3300215/264173568-b68d4383-7c2a-4b08-8ac9-2e56a63a4422.png)
+
+
+## Anatomy
+
+### Full pages
+
+![The anatomy - full page](https://user-images.githubusercontent.com/3300215/264173571-f710974f-aa87-4c42-ba86-f6a135fa7c31.png)
+
+### Light-weight checkout (dialog)
+
+![The anatomy - dialog content](https://user-images.githubusercontent.com/3300215/263131370-5e221bc1-a744-4cf2-9297-a70ac013bc99.png)
+
+## Guiding recommendations
+
+<DoDontContainer>
+<Do>
+
+- Have a clear way to cancel or go back to a previous step.
+
+</Do>
+<Dont>
+
+- Avoid using disabled buttons.
+- Avoid hiding CTAs when form information is missing. Use Error states instead.
+
+</Dont>
+</DoDontContainer>
+
+![Example of an order summary with a cancel button and a confirmation modal with a back button](https://user-images.githubusercontent.com/3300215/264173573-154d5b91-cae5-4cb0-8d8f-e03729cc44e5.png)
+
+<DoDontContainer stacked>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/3300215/264173576-b146c55c-ede1-4a62-b572-841404889e24.png"
+      alt="Example of a checkout page with a left side column highlighted on the form section"
+    />
+    <Caption>
+      Custom forms and customer’s details should be collected on the left column.
+    </Caption>
+  </Do>
+  </DoDontContainer>
+
+<DoDontContainer>
+<Do>
+
+- Order or purchase summary should be on the right column followed by confirmation buttons.
+- CTAs for purchase or confirmation is always followed by a disclaimer.
+
+</Do>
+<Dont>
+
+- Avoid placing a confirmation button far from dollar amounts.
+
+</Dont>
+</DoDontContainer>
+
+![Examples of checkout pages focusing on order summary in the right column](https://user-images.githubusercontent.com/3300215/264173578-f073d87e-8938-421d-8c71-f4bdcb35c999.png)
+
+<DoDontContainer>
+<Do>
+
+- Use clear language in CTAs to stay in context with the action to be followed.
+
+</Do>
+<Dont>
+
+- Avoid being vague with examples such as: “Purchase” or “Confirm”.
+
+</Dont>
+</DoDontContainer>
+
+![Examples of headings matching button language](https://user-images.githubusercontent.com/3300215/264173580-5db08738-1648-430e-b0dc-736a2a0fe1f7.png)
+
+<DoDontContainer>
+<Do>
+
+- Keep total amount to be charged as “Due today” below any cost breakdown.
+- Use muted tones for dates and cost breakdowns.
+
+</Do>
+<Dont>
+
+- Don’t use multiple variations of font sizes or banners for attention.
+
+</Dont>
+</DoDontContainer>
+
+![Examples of headings matching button language](https://user-images.githubusercontent.com/3300215/264424153-c3466ffb-370d-48a4-9dc5-1bdc1b0f60e3.png)
