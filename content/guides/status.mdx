@@ -1,0 +1,20 @@
+---
+title: Component status
+description: Check the status of accessibility reviews and the component lifecycle status of each component.
+---
+
+import SpecialLayout from '~/src/layouts/simple-layout'
+export default SpecialLayout
+
+import {RailsProvider} from '../../src/components/rails-provider'
+import {StatusTable} from '../../src/components/status'
+
+<Note>
+
+Check out the [component lifecycle](/guides/component-lifecycle) for more information on each status.
+
+</Note>
+
+<RailsProvider>
+  <StatusTable />
+</RailsProvider>
