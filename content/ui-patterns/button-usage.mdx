@@ -1,0 +1,119 @@
+---
+title: Button usage
+---
+
+<!-- TODO: Change, too many words -->
+
+These guidelines summarize how GitHub implements buttons across our products. We have standardized buttons documented on [Primer CSS](https://primer.style/css/) and [Primer Components](https://primer.style/components), and these docs which serve as the source of truth for development implementation. This article serves to supplement our technical docs with proper guidance on design implementation.
+
+## Anatomy
+
+### Button text
+
+Button text should be clear and concise. Effective text should describe the action that will be taken when the user interacts with the button.
+
+### Use text descriptions
+
+In certain scenarios, buttons require supporting text to give the user more context. Use text labels sparingly, as buttons should generally be able to be understood on their own.
+
+## Types and usage
+
+### Primary
+
+<img
+  width="188"
+  alt="Primary button has a green background and white text"
+  src="https://user-images.githubusercontent.com/10384315/102147130-19a3b700-3e1f-11eb-8581-3b58b053dadd.png"
+/>
+
+Use for the main action on a page or view. Use only one per page or view.
+
+### Secondary
+
+<img
+  width="188"
+  alt="Secondary button has light gray background and dark gray text"
+  src="https://user-images.githubusercontent.com/10384315/102147132-19a3b700-3e1f-11eb-9cc9-0c7a6fdb8e4a.png"
+/>
+
+Use for general actions on the page or view.
+
+### Outline
+
+<img
+  width="188"
+  alt="Outline button has light gray background and blue text"
+  src="https://user-images.githubusercontent.com/10384315/102147129-19a3b700-3e1f-11eb-94b7-941c140701e3.png"
+/>
+
+Use for important actions that you want to call attention to, such as introducing a new action on a page that already has a primary action. Multiple outline buttons are allowed on a single page or view.
+
+### Danger
+
+<img
+  width="188"
+  alt="Danger button has light gray background and red text"
+  src="https://user-images.githubusercontent.com/10384315/102147125-18728a00-3e1f-11eb-9298-4376aba290cf.png"
+/>
+
+Use for destructive actions or actions that will result in a negative outcome. Use danger buttons sparingly within a single page or view.
+
+### Invisible
+
+<img
+  width="188"
+  alt="Invisible button has no background and blue text"
+  src="https://user-images.githubusercontent.com/10384315/102147126-190b2080-3e1f-11eb-82c0-c70c3d8d4e7d.png"
+/>
+
+Use only paired with another button as the secondary action, such as the **Cancel** button in a form.
+
+<Note variant="warning">The dashed border is only to show the button's boundaries but is not visible when used.</Note>
+
+## Variations
+
+### Icons
+
+Use octicons in conjunction with buttons to clarify an action if text alone is not enough to explain its functionality. Octicons can also be used to signal an interaction, for example, the `triangle-down` octicon to open a dropdown.
+
+In some cases, Octicons are used to create an identifiable visual indicator for a common action or paradigm. For example, the repo icon is used next to repo links, the new repo button, and repeated in the new repo flow. This repetition and continuity helps people learn and identify our visual language.
+
+### Groups
+
+Organize buttons together in button groups to show their similar functionality. Keep in mind that only default and outline buttons can be used as button groups. This modifier can also be used as a filtering pattern as well.
+
+### Counters
+
+Counters can be added as numerical aid in appropriate scenarios. They should generally only be used with “small” buttons, and only be used where it is providing valuable context.
+
+### Full-width
+
+Full-width buttons extend to the width of their parent container. Example use cases include:
+
+- Modals with a single call-to-action
+- Responsive behavior of buttons when scaled down to smaller screen sizes
+
+## Hierarchy and placement
+
+<!-- TODO: Can be a do/don't. Remove headings -->
+
+<!-- ### Use size to modify button hierarchy -->
+
+- Increase button size to bring prominence to buttons that have major impact.
+- Decrease button size when space is limited and the action is of lesser significance.
+
+### Placement
+
+#### Inline
+
+When aligning buttons inline, the primary action should always be placed to the outermost edge.
+
+<img
+  width="508"
+  alt="Example of primary action to the right of two secondary buttons"
+  src="https://user-images.githubusercontent.com/10384315/102150666-fcbeb200-3e25-11eb-9a64-09195db9ecee.png"
+/>
+
+#### Stacked
+
+When aligning full-width buttons vertically, the primary action should always be placed on top of any secondary actions.
