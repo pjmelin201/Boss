@@ -1,0 +1,487 @@
+---
+title: Overlays
+status: Alpha
+---
+
+import {Grid, Flex, Box, Button, ButtonOutline, Heading, Label, LabelGroup, Link} from '@primer/components'
+
+<Box sx={{fontSize: 3}} class="lead" as="p">
+  An overlay is a flexible floating surface, used to display transient content such as menus, selection options,dialogs,
+  and more.
+</Box>
+
+<LabelGroup display="block" mb={4}>
+  <Label
+    as="a"
+    href="https://primer.style/react/Overlay"
+    variant="xl"
+    color="text.success"
+    outline
+    style="text-decoration: none; line-height: 20px;"
+  >
+    <img
+      width="20"
+      height="20"
+      alt=""
+      src="https://user-images.githubusercontent.com/293280/123878374-ce9d4d00-d8f3-11eb-8adf-1a160292ff53.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    React
+  </Label>
+  <Label
+    as="a"
+    href="https://www.figma.com/file/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web?node-id=9677%3A44413"
+    variant="xl"
+    outline
+    style="text-decoration: none; line-height: 20px;"
+  >
+    <img
+      width="20"
+      height="20"
+      alt=""
+      src="https://user-images.githubusercontent.com/293280/123878720-80d51480-d8f4-11eb-9b10-d02a1cb606f8.png"
+      style="vertical-align: middle; margin-right: 4px;"
+    />
+    Figma
+  </Label>
+</LabelGroup>
+
+<img src="https://user-images.githubusercontent.com/293280/125706076-b16bb3d4-800f-4310-a082-f576e215e6c8.png" alt="" />
+
+## Overview
+
+Overlays can streamline the interface by allowing extra options to be displayed as needed. Overlays create a new modality to the user, and can facilitate the completion of individual tasks.
+
+### Keep overlays simple
+
+Overlays are meant to be interacted with quickly. Avoid creating a whole page inside an overlay. Prefer single-column layouts that convey a clear goal the moment the overlay is opened. If secondary navigation is required for the feature, consider designing a new page.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/172914027-668b5b51-b414-4e69-8e5c-9069222eaaad.png"
+      alt=""
+    />
+    <Caption>Prefer a single column layout.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/172914038-d27437cc-213c-42d7-950d-a6997e777489.png"
+      alt=""
+    />
+    <Caption>Avoid secondary navigation within an overlay.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Ensure overlays are accessible
+
+Overlays should be fully functional using the keyboard. When an overlay is used for a dialog, a close button must be present. Pressing `Esc` should dismiss an overlay, generally returning focus to the element that opened it. Overlays should have clear, descriptive titles.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/172926094-08197e69-6e8a-4aa1-849a-455ceab89cb0.png"
+      alt=""
+    />
+    <Caption>Provide a title and close button for dialogs.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/172926105-c436ea40-1d9d-4166-8780-ea0a68f91068.png"
+      alt=""
+    />
+    <Caption>Avoid dialogs without a title or close button.</Caption>
+  </Dont>
+</DoDontContainer>
+
+### Overlays should work well on any device
+
+Overlays must adjust their designs to fit in smaller viewports, and may adapt their style to become bottom sheets or full-screen on narrow devices. Make sure the overlay contents work with all supported sizes and input methods.
+
+<DoDontContainer>
+  <Do>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/172926228-9e46b6f0-bc4c-47e3-8c90-960d1ec26031.png"
+      alt=""
+    />
+    <Caption>Use a bottom sheet for narrow devices.</Caption>
+  </Do>
+  <Dont>
+    <img
+      src="https://user-images.githubusercontent.com/18661030/172926222-aeace43b-871f-4877-a69d-bc81e53c674a.png"
+      alt=""
+    />
+    <Caption>Avoid setting explicit widths on content to prevent screen overflow.</Caption>
+  </Dont>
+</DoDontContainer>
+
+## Anatomy
+
+<ImageContainer mb={4}>
+  <img
+    width="636"
+    src="https://user-images.githubusercontent.com/293280/149601062-2e35343d-e2f9-406d-a5c9-ac21cda0e1fe.png"
+    alt="Overlays have 3 regions: header, content, and footer. These regions may be divided by a full-width divider. Overlays use shadows to indicate elevation, and may appear above a backdrop that dims the rest of the screen."
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Anatomy of an overlay.</Caption>
+
+#### Spacing
+
+Keep the edges of an overlay free of text and heavy visuals. This breathing room is meant to visually distinguish the overlay as an elevated surface, alongside its shadow. Generally, a compact a safe area of 16px is preferred. Components that have transparent or discrete backgrounds may take into account their own paddings, and appear beyond the safe area.
+
+#### Scroll behavior
+
+The content region may scroll vertically to accommodate lists and content that is too long to fit in the available space.
+
+#### Header and footer
+
+Optional header and footer regions assist larger overlays. They help provide context and may host non-scrollable actions such as **Close** or **Save**.
+
+#### Backdrops
+
+Backdrops help emphasize the active content. Backdrops are especially recommended for larger overlays such as dialogs, to highlight their modality.
+
+<ImageContainer mb={4}>
+  <img
+    width="636"
+    src="https://user-images.githubusercontent.com/293280/149601850-2736ea96-b6ab-46b7-8bdb-11920f833d29.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>
+
+An example of a dialog with 16px paddings. Notice the **Close** button is closer to the edges, but its icon is still within the safe area.
+
+</Caption>
+
+### Header region
+
+A header region should be used to provide context to the user by displaying a title, description, and a **Close** button. Headers may also provide ways for the user to interact with the content, such as with search and tabs.
+
+- **Titles should be succinct**. Descriptions are optional, and may wrap to multiple lines.
+- Reserve buttons such as **Save**, **Apply**, and **Done** for the footer region.
+- A divider may be used to separate the header from the content, partic in scenarios where the content region is scrollable.
+
+<ImageContainer>
+  <img
+    width="600"
+    src="https://user-images.githubusercontent.com/293280/125709255-7d0f199d-9ea9-46ac-ae5a-c6e60d97b289.png"
+    alt="An overlay with a header that contains a title with description, an overflow button for custom actions, a close button, and a search field."
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Header region with search field.</Caption>
+
+<ImageContainer>
+  <img
+    width="600"
+    src="https://user-images.githubusercontent.com/293280/125709258-c542e916-69c3-4b37-9f7d-c118d9e704bd.png"
+    alt="An overlay with a header that contains larger title and description, an overflow button for custom actions, and a close button."
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Header region with larger title and description.</Caption>
+
+### Footer region
+
+The footer region may be used to show confirmation actions, navigation links, or other important elements that should appear outside of the content scrolling region.
+
+If the content area has overflow scrolling, a divider _must_ be shown between the footer and content area. Otherwise, showing a divider is optional.
+
+<ImageContainer>
+  <img
+    width="600"
+    src="https://user-images.githubusercontent.com/293280/146613971-391a757b-e5a5-40c2-b166-8f829c5d3609.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Use buttons in a footer to let the user finish the task and confirm their action.</Caption>
+
+<ImageContainer>
+  <img
+    width="600"
+    src="https://user-images.githubusercontent.com/293280/146613606-493cb6fb-2f7b-4ec0-9f66-545b5f38d61c.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Use a link in a footer to provide access to a related page.</Caption>
+
+### Width and height
+
+Overlays should never extend beyond the viewport sizes, and may resize to fit smaller devices. The contents of an overlay should fit narrow viewports with a mimumum width of 320px. In the contents of an overlay extend vertically beyond the specified height, the content region will scroll.
+
+Overlays width and height dimensions should be set by the values in the following tables.
+
+<Grid gridTemplateColumns={['1fr', null, null, null, 'auto 1fr']} gridGap={4}>
+<div>
+
+| Width     | Size               |
+| :-------- | :----------------- |
+| `auto`    | Adjusts to content |
+| `small`   | 256px              |
+| `medium`  | 320px              |
+| `large`   | 480px              |
+| `xlarge`  | 640px              |
+| `xxlarge` | 960px              |
+
+</div>
+<div>
+
+| Height   | Size               |
+| :------- | :----------------- |
+| `auto`   | Adjusts to content |
+| `xsmall` | 192px              |
+| `small`  | 256px              |
+| `medium` | 320px              |
+| `large`  | 432px              |
+| `xlarge` | 600px              |
+
+</div>
+</Grid>
+
+## Behaviors
+
+### Opening
+
+Overlays appear on the page after a direct user interaction, such as on click, tap, press, etc. Don't show overlays on page load. For that, prefer in-page messages and flash banners.
+
+### Dismissing
+
+Users should be able to dismiss an overlay by:
+
+- Pressing Escape
+- Pressing on a **Close** button
+- Clicking or tapping outside
+- Pressing the browser’s back button
+
+Close buttons are useful as an easy escape route, particularly in larger or more complex overlays, or when the overlay is no longer visually connected to the source that triggered it. Always use a close button for overlays with backdrops.
+
+Users may click or tap outside to dismiss an overlay. Larger overlays with backdrops may opt to disable this functionality in dangerous scenarios where the user could lose progress or data accidentally.
+
+If the overlay contains changes that are not immediately applied (such as in a form), offer footer buttons such as **Save**, **Apply**, or **Submit**. To avoid users from losing important unsaved changes, a [`beforeUnload`](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload) event may be used.
+
+Users should also be able to click or tap the browser’s back button to dismiss the overlay. This is particularly useful on mobile devices.
+
+## Placement
+
+Overlays may appear:
+
+- Anchored next a source element (typically for menus)
+- Centered in the viewport with a backdrop (also known as "dialogs")
+- As a sliding side sheet with a backdrop
+
+On narrow viewports, overlays can be one of the options above, or adapt to variants that are designed specifically for smaller devices:
+
+- Bottom sheet (anchored to the bottom of the screen for easier touch reachability)
+- Full-screen (for forms, long lists and other complex flows)
+
+### Anchored overlays
+
+Anchored overlays can be used in any device or screen size. They anchor to the button or source element that triggered them, drawing a direct connection between the elements. The source element should have a "selected" visual state while the overlay is opened.
+
+Anchored overlays are useful for menus, quick interactions, and data manipulation. They don't dim the rest of the screen with a backdrop when presented.
+
+Anchored overlays can be dismissed at any time by clicking outside of it. An anchored overlay may also be dismissed after choosing one of its options or buttons, or when clicking on an optional **Close** button.
+
+<ImageContainer>
+  <img
+    alt=""
+    width="372"
+    src="https://user-images.githubusercontent.com/293280/126412744-45197568-26cd-432f-bfc0-03f5c90cb647.png"
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>An anchored overlay attached to its source.</Caption>
+
+Anchored overlays should be at least 16px away from the viewport boundaries. Users shouldn't be blocked from scrolling the page while an anchored overlay is open, nor should a scrolling event in the page close the overlay.
+
+Primer uses [`anchoredPosition`](https://github.com/primer/behaviors/blob/main/docs/anchored-position.md) to calculate the position of an overlay.
+
+<ImageContainer>
+  <img
+    width="508"
+    src="https://user-images.githubusercontent.com/293280/147167707-66da9301-fdfd-4810-9f62-41e4f6f3c23c.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>
+
+A visualization of available [`anchoredPosition`](https://github.com/primer/behaviors/blob/main/docs/anchored-position.md) options. Source elements (purple squares) and their overlays (white squares) with `side` (`outside-top`, `outside-right`, `outside-bottom`, `outside-left`) and `align` (`start`, `center`, `end`) settings.
+
+</Caption>
+
+### Centered overlays ("dialogs")
+
+Centered overlays appear centered in the viewport, with a visible backdrop that dims the rest of the window for focus.
+
+Centered overlays should always have an overlay header with a title and **Close** button.
+
+Prevent page scrolling when a centered overlay is present.
+
+Overlays shouldn't touch the viewport edges. Use a safe 16px margin to keep centered overlays visually distinct from the rest of the page, even on narrow viewports.
+
+Simple and small centered overlays can remain as-is on narrow viewports. Consider <a href="#responsive-variants">responsive variants</a> as more elements are added to it.
+
+<ImageContainer>
+  <img
+    width="661"
+    src="https://user-images.githubusercontent.com/293280/147170315-80da186f-7de8-4632-893e-31c56dc1e65d.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>
+
+A centered dialog with a title and close button in the header, a scrollable content region, and a footer with buttons.
+
+</Caption>
+
+### Side sheets
+
+Side sheets slide from the right or left edges of the viewport. Left side sheets are reserved for global navigation drawers. Right side sheets are used for global actions, but can also be considered for quick previews in full-width pages, or configuration panels.
+
+Side sheets take the entire height of the viewport, and should be used sparingly. Don't use side sheets to present forms or flows that should be a page instead.
+
+## Responsive variants
+
+### Bottom sheets (specific to narrow viewports)
+
+A bottom sheet is a variant supported on narrow viewports made to facilitate reachability. Overlays that appear anchored or centered in large screens may adapt to appear as a bottom sheet on small screens.
+
+A bottom sheet variant can be used when the overlay content is too busy to appear anchored. A bottom sheet always dims the rest of the screen for focus. Tapping on the backdrop dismisses the overlay.
+
+Its height should always accommodate the content inside. If the content is too tall to fit in the viewport, the content region should scroll accordingly.
+
+On portrait mode, a bottom sheet takes up the full width of the viewport.
+
+<ImageContainer>
+  <img
+    width="680"
+    src="https://user-images.githubusercontent.com/293280/147170160-5392c649-0dcb-4c7c-adfc-2524a4a3915c.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>
+
+In order to work well in non-rectangular mobile screens and browser UI, bottom sheets may add extra padding inside the overlay, following [`env(safe-area-inset-*)`](<https://developer.mozilla.org/en-US/docs/Web/CSS/env()>) environment variables.
+
+</Caption>
+
+On landscape mode, a bottom sheet has a maximum width of 480px, centered horizontally.
+
+<ImageContainer>
+  <img
+    width="880"
+    src="https://user-images.githubusercontent.com/293280/147170826-73caa091-b71a-4296-beba-ccf3a2ccf9ab.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Bottom sheet on landscape viewports.</Caption>
+
+<ImageContainer>
+  <img
+    width="500"
+    src="https://user-images.githubusercontent.com/293280/147170671-09e6002a-2622-41b6-afe5-f37f0890a6c3.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Header indicator when no title and close button are present.</Caption>
+
+A bottom sheet without a title or close button gets a header indicator at the top. Slide it down to dismiss the overlay.
+
+### Full-screen (specific to narrow viewports)
+
+Full-screen overlays may be used to present content that needs all the available space on narrow viewports.
+
+Overlays that have one or more input fields should always use the full-screen variant.
+
+<ImageContainer>
+  <img
+    width="500"
+    src="https://user-images.githubusercontent.com/18661030/172957286-630f1737-8a90-48eb-9732-7168d882ec81.png"
+    alt=""
+    style="background: none"
+  />
+</ImageContainer>
+<Caption>Full-screen overlay with close button.</Caption>
+
+<!--
+## Navigation
+This section should cover in-overlay navigation such as drill-in scenarios, back button, etc.
+-->
+
+## Components
+
+Several components that rely on overlays are available for use. Use them directly when aiming for a specific behavior:
+
+<Grid gridTemplateColumns={['1fr', null, null, null, '1fr 2fr']} gridGap={4}>
+    <div>
+        <Link href="https://primer.style/react/ActionMenu">
+            <img alt="Action menu" src="https://user-images.githubusercontent.com/293280/123880964-95b3a700-d8f8-11eb-9775-cbaf165207ed.png" />
+        </Link>
+    </div>
+    <div>
+        <Heading fontSize={3}>Action menu</Heading>
+        <Box as="p">
+
+Action menus are used for showing actions, navigation, or to display secondary options. They appear when users interact with a trigger button.
+
+[Primer React implementation](https://primer.style/react/ActionMenu)
+
+</Box>
+    </div>
+    <div>
+        <Link href="https://primer.style/react/SelectPanel">
+            <img alt="Select panel" src="https://user-images.githubusercontent.com/293280/123876997-4158f900-d8f1-11eb-85cb-461d9bbee0cb.png" />
+        </Link>
+    </div>
+    <div>
+        <Heading fontSize={3}>Select panel</Heading>
+        <Box as="p">
+
+Select panels allow the manipulation of long lists of options, with filtering and other advanced interactions. They can be used for single or multi-selection.
+
+[Primer React implementation](https://primer.style/react/SelectPanel)
+
+</Box>
+    </div>
+    <div>
+        <Link href="https://primer.style/react/Dialog#confirmationdialog">
+            <img alt="Confirmation dialog" src="https://user-images.githubusercontent.com/293280/146620807-b5a757bc-59a0-4596-ad3a-ef656c7d5620.png" />
+        </Link>
+    </div>
+    <div>
+        <Heading fontSize={3}>Confirmation dialog</Heading>
+        <Box as="p">
+
+Confirmation dialogs let users confirm or cancel an action. They are used as extra friction for destructive actions.
+
+[Primer React implementation](https://primer.style/react/Dialog#confirmationdialog)
+
+</Box>
+    </div>
+<div>
+        <Link href="https://primer.style/react/Dialog">
+            <img alt="Dialog" src="https://user-images.githubusercontent.com/293280/146621670-20a7e5dd-1f62-4780-a7ed-10711db93fcb.png" />
+        </Link>
+    </div>
+    <div>
+        <Heading fontSize={3}>Dialog</Heading>
+        <Box as="p">
+
+Dialogs are larger overlays used to display details, forms, and other rich content.
+
+[Primer React implementation](https://primer.style/react/Dialog)
+
+</Box>
+    </div>
+</Grid>
