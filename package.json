@@ -1,0 +1,31 @@
+{
+  "name": "primer-design",
+  "repository": "primer/design",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build --prefix-paths",
+    "build:preview": "gatsby build",
+    "now-build": "yarn build",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@github/prettier-config": "^0.0.4",
+    "@primer/gatsby-theme-doctocat": "^4.2.0",
+    "@primer/octicons-react": "^17.3.0",
+    "@primer/react": "^35.5.0",
+    "eslint": "^8.21.0",
+    "eslint-plugin-github": "^4.3.7",
+    "gatsby": "^3.7.2",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-postcss": "^4.14.0",
+    "gatsby-plugin-typescript": "^2.12.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "yarn": "^1.22.18"
+  },
+  "devDependencies": {
+    "path-browserify": "^1.0.1"
+  },
+  "private": true
+}
